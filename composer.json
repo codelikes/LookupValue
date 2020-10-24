@@ -1,0 +1,42 @@
+{
+    "name": "codelikes/lookupvalue",
+    "description": "",
+    "keywords": [
+    ],
+    "homepage": "https://github.com/codelikes/LookupValue",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nikolay Ponich",
+            "email": "n.ponich@gmail.com",
+            "homepage": "https://cv.ponich.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^8.0|^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Codelikes\\LookupValue\\": "src"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Codelikes\\LookupValue\\Test\\": "tests"
+        }
+    },
+    "extra": {},
+    "scripts": {
+        "test": "phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
