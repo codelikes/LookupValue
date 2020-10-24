@@ -13,8 +13,14 @@
             "role": "Developer"
         }
     ],
-    "require": {},
+    "require": {
+        "php" : "^7.2",
+        "illuminate/container": "^5.8|^6.0|^7.0|^8.0",
+        "illuminate/contracts": "^5.8|^6.0|^7.0|^8.0",
+        "illuminate/database": "^5.8|^6.0|^7.0|^8.0"
+    },
     "require-dev": {
+        "orchestra/testbench": "^3.8|^4.0|^5.0|^6.0",
         "phpunit/phpunit": "^8.0|^9.0"
     },
     "autoload": {
@@ -30,7 +36,13 @@
             "Codelikes\\LookupValue\\Test\\": "tests"
         }
     },
-    "extra": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Codelikes\\LookupValue\\LookupValueServiceProvider"
+            ]
+        }
+    },
     "scripts": {
         "test": "phpunit"
     },
