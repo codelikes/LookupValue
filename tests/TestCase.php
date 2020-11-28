@@ -1,8 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Codelikes\LookupValue\Test;
 
+use Codelikes\LookupValue\Facade;
 use Codelikes\LookupValue\LookupValueServiceProvider;
+use CreateLookupValueTable;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 abstract class TestCase extends Orchestra
@@ -10,7 +14,7 @@ abstract class TestCase extends Orchestra
     public function setUp(): void
     {
         parent::setUp();
-        $this->setUpDatabase($this->app);
+        $this->setUpDatabase();
     }
 
     protected function getEnvironmentSetUp($app)
@@ -23,16 +27,23 @@ abstract class TestCase extends Orchestra
         ]);
     }
 
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app): array
     {
         return [
             LookupValueServiceProvider::class,
         ];
     }
 
-    protected function setUpDatabase($app)
+    protected function getPackageAliases($app): array
+    {
+        return [
+            'LookupValue' => Facade::class,
+        ];
+    }
+
+    protected function setUpDatabase()
     {
         include_once __DIR__ . '/../database/migrations/create_lookup_value_table.php';
-        (new \CreateLookupValueTable)->up();
+        (new CreateLookupValueTable)->up();
     }
 }
